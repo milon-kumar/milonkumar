@@ -95,8 +95,9 @@
                                     aria-describedby="basic-addon1"
                                     required=""
                                 />
+                                <br/>
                                 @error('email')
-                                    <small>{{$message}}</small>
+                                    <small class="text-danger">{{$message}}</small>
                                 @enderror
                             </div>
 
@@ -117,6 +118,10 @@
                                     aria-describedby="basic-addon1"
                                     required=""
                                 />
+                                <br/>
+                                @error('password')
+                                <small class="text-danger">{{$message}}</small>
+                                @enderror
                             </div>
                         </div>
                     </div>

@@ -21,10 +21,10 @@
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="{{asset('/')}}assets/backend/assets/images/favicon.png"
+        href="{{asset('/')}}assets/backend/images/favicon.png"
     />
     <!-- Custom CSS -->
-    <link href="{{asset('/')}}assets/backend/assets/libs/flot/css/float-chart.css" rel="stylesheet" />
+    <link href="{{asset('/')}}assets/backend/libs/flot/css/float-chart.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="{{asset('/')}}assets/backend/dist/css/style.min.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -100,9 +100,9 @@
 <!-- ============================================================== -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <!-- Bootstrap tether Core JavaScript -->
-<script src="{{asset('/')}}assets/backend/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="{{asset('/')}}assets/backend/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-<script src="{{asset('/')}}assets/backend/assets/extra-libs/sparkline/sparkline.js"></script>
+<script src="{{asset('/')}}assets/backend/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('/')}}assets/backend/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="{{asset('/')}}assets/backend/extra-libs/sparkline/sparkline.js"></script>
 <!--Wave Effects -->
 <script src="{{asset('/')}}assets/backend/dist/js/waves.js"></script>
 <!--Menu sidebar -->
@@ -112,13 +112,13 @@
 <!--This page JavaScript -->
 <!-- <script src="{{asset('/')}}assets/backend/dist/js/pages/dashboards/dashboard1.js"></script> -->
 <!-- Charts js Files -->
-<script src="{{asset('/')}}assets/backend/assets/libs/flot/excanvas.js"></script>
-<script src="{{asset('/')}}assets/backend/assets/libs/flot/jquery.flot.js"></script>
-<script src="{{asset('/')}}assets/backend/assets/libs/flot/jquery.flot.pie.js"></script>
-<script src="{{asset('/')}}assets/backend/assets/libs/flot/jquery.flot.time.js"></script>
-<script src="{{asset('/')}}assets/backend/assets/libs/flot/jquery.flot.stack.js"></script>
-<script src="{{asset('/')}}assets/backend/assets/libs/flot/jquery.flot.crosshair.js"></script>
-<script src="{{asset('/')}}assets/backend/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+<script src="{{asset('/')}}assets/backend/libs/flot/excanvas.js"></script>
+<script src="{{asset('/')}}assets/backend/libs/flot/jquery.flot.js"></script>
+<script src="{{asset('/')}}assets/backend/libs/flot/jquery.flot.pie.js"></script>
+<script src="{{asset('/')}}assets/backend/libs/flot/jquery.flot.time.js"></script>
+<script src="{{asset('/')}}assets/backend/libs/flot/jquery.flot.stack.js"></script>
+<script src="{{asset('/')}}assets/backend/libs/flot/jquery.flot.crosshair.js"></script>
+<script src="{{asset('/')}}assets/backend/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
 <script src="{{asset('/')}}assets/backend/dist/js/pages/chart/chart-page-init.js"></script>
 
 @stack('js')

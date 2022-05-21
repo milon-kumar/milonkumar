@@ -94,7 +94,21 @@
                 <!-- ============================================================== -->
                 <!-- Comment -->
                 <!-- ============================================================== -->
+
                 <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="{{route('frontend.home')}}"
+                        id="navbarDropdown"
+                        target="_blank"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        <i class="mdi mdi-web font-24"></i>
+                    </a>
+                </li>
+               <li class="nav-item dropdown">
                     <a
                         class="nav-link dropdown-toggle"
                         href="#"
@@ -276,17 +290,19 @@
                             Setting</a
                         >
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:void(0)"
-                        ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a
-                        >
+
+
+                        <form hidden id="logoutForm" method="POST" action="{{ route('logout') }}">
+                            @csrf
+                        </form>
+
+
+
+                        <a class="dropdown-item" href="{{route('logout')}}"
+                           onclick="event.preventDefault();document.getElementById('logoutForm').submit();"
+                        ><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
+
                         <div class="dropdown-divider"></div>
-                        <div class="ps-4 p-10">
-                            <a
-                                href="javascript:void(0)"
-                                class="btn btn-sm btn-success btn-rounded text-white"
-                            >View Profile</a
-                            >
-                        </div>
                     </ul>
                 </li>
                 <!-- ============================================================== -->

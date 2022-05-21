@@ -22,7 +22,7 @@ Route::get('/', function () {
 //})->name('backend.home');
 
 Route::get('/dashboard', function () {
-    return redirect()->route('backend.dashboard');
+    return redirect()->route('backend.home');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\GalleryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -12,6 +13,7 @@ Route::group(['middleware'=>'auth' ,'as'=>'backend.','prefix'=>'backend'],functi
     Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('home');
 
 
+    Route::resource('/gallery',GalleryController::class);
 
 
 
