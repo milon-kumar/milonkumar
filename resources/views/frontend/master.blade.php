@@ -16,6 +16,7 @@
 </head>
 <body>
 <div id="main-wrapper">
+    @include('sweetalert::alert')
     @include('frontend.includes.navbar')
 
     @yield('content')

@@ -23,10 +23,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto outdorBG" >
-                        <div class="col-md-4">
+                        @foreach($data[0] as $key => $val)
+                            <div class="col-md-4">
                             <div class="card g-c-card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/')}}assets/frontend/image/ux2.jpg">
-                                    <img class="img-fluid" src="{{asset('/')}}assets/frontend/image/ux2.jpg" alt="">
+                                <a class="yBox" data-ybox-group="group1" href="{{asset('/uploads/gallery/'. $val->image)}}">
+                                    <img class="img-fluid" src="{{ asset('/uploads/gallery/'. $val->image) }}" alt="">
 
                                     <div class="card-boyd card-img-overlay ">
                                         <div class="gallery-con-overlay">
@@ -42,43 +43,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/')}}assets/frontend/image/ux2.jpg">
-                                    <img class="img-fluid" src="{{asset('/')}}assets/frontend/image/ux2.jpg" alt="">
-
-                                    <div class="card-boyd card-img-overlay ">
-                                        <div class="gallery-con-overlay">
-                                            <h6>Image title</h6>
-                                            <small><i class="fa fa-camera"></i> click by jugol kumar in 5 jun 2022</small>
-                                        </div>
-
-                                        <div class="sosalite">
-                                            <a class="btn btn-light" href=""><i class="fa fa-eye"></i>2100</a>
-                                            <a class="btn btn-light" href=""><i class="fa fa-heart-o"></i>100</a>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/')}}assets/frontend/image/ux2.jpg">
-                                    <img class="img-fluid" src="{{asset('/')}}assets/frontend/image/ux2.jpg" alt="">
-
-                                    <div class="card-boyd card-img-overlay ">
-                                        <div class="gallery-con-overlay">
-                                            <h6>Image title</h6>
-                                            <small><i class="fa fa-camera"></i> click by jugol kumar in 5 jun 2022</small>
-                                        </div>
-                                        <div class="sosalite">
-                                            <a class="btn btn-light" href=""><i class="fa fa-eye"></i>2100</a>
-                                            <a class="btn btn-light" href=""><i class="fa fa-heart-o"></i>100</a>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="card-footer">
@@ -119,10 +84,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
+                        @foreach($data[1] as $key => $val)
                         <div class="col-md-4">
                             <div class="card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/')}}assets/frontend/image/ux2.jpg">
-                                    <img class="img-fluid" src="{{asset('/')}}assets/frontend/image/ux2.jpg" alt="">
+                                <a class="yBox" data-ybox-group="group1" href="{{asset('/uploads/gallery/'. $val->image)}}">
+                                    <img class="img-fluid" src="{{ asset('/uploads/gallery/'. $val->image) }}" alt="">
 
                                     <div class="card-boyd card-img-overlay ">
                                         <div class="gallery-con-overlay">
@@ -138,43 +104,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/')}}assets/frontend/image/ux2.jpg">
-                                    <img class="img-fluid" src="{{asset('/')}}assets/frontend/image/ux2.jpg" alt="">
-
-                                    <div class="card-boyd card-img-overlay ">
-                                        <div class="gallery-con-overlay">
-                                            <h6>Image title</h6>
-                                            <small><i class="fa fa-camera"></i> click by jugol kumar in 5 jun 2022</small>
-                                        </div>
-                                        <div class="sosalite">
-                                            <a class="btn btn-light" href=""><i class="fa fa-eye"></i>2100</a>
-                                            <a class="btn btn-light" href=""><i class="fa fa-heart-o"></i>100</a>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/')}}assets/frontend/image/ux2.jpg">
-                                    <img class="img-fluid" src="{{asset('/')}}assets/frontend/image/ux2.jpg" alt="">
-
-                                    <div class="card-boyd card-img-overlay ">
-                                        <div class="gallery-con-overlay">
-                                            <h6>Image title</h6>
-                                            <small><i class="fa fa-camera"></i> click by jugol kumar in 5 jun 2022</small>
-                                        </div>
-
-                                        <div class="sosalite">
-                                            <a class="btn btn-light" href=""><i class="fa fa-eye"></i>2100</a>
-                                            <a class="btn btn-light" href=""><i class="fa fa-heart-o"></i>100</a>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="card-footer">
@@ -301,4 +231,13 @@
         </div>
     </section>
 
+
+
 @endsection
+
+
+@push('js')
+    <script>
+        yBox();
+    </script>
+@endpush

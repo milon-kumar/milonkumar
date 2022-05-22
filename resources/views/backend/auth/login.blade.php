@@ -60,7 +60,16 @@
         "
         style="height: 100vh"
     >
+
+        <div class=""></div>
         <div class="auth-box bg-dark border-top border-secondary">
+            @if($errors->any())
+                <ul class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            @endif
             <div id="loginform">
                 <div class="text-center pt-3 pb-3">
               <span class="db"
@@ -95,10 +104,6 @@
                                     aria-describedby="basic-addon1"
                                     required=""
                                 />
-                                <br/>
-                                @error('email')
-                                    <small class="text-danger">{{$message}}</small>
-                                @enderror
                             </div>
 
                             <div class="input-group mb-3">
@@ -118,10 +123,6 @@
                                     aria-describedby="basic-addon1"
                                     required=""
                                 />
-                                <br/>
-                                @error('password')
-                                <small class="text-danger">{{$message}}</small>
-                                @enderror
                             </div>
                         </div>
                     </div>

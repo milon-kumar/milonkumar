@@ -8,10 +8,10 @@
     --poppins--: 'Poppins', sans-serif;
     --roboto--: 'Roboto', sans-serif;
     --ubuntu--: 'Ubuntu', sans-serif;
-    --textMainColor--:#FD9966;
+    --textMainColor--: #fd9966;
     --el1Bg--: linear-gradient(to right , #0d6efd,#0dcaf0);
     --heroBtnBg2--:linear-gradient(145deg ,#FD9966,magenta);
-    --textWhiteColor--: #FFFFFF;
+    --textWhiteColor--: #ffffff;
     --textBlackColor--: #131313;
     --servHeaderBg--:linear-gradient(125deg ,#ff5f6d , #ffc371);
     --areaShadowColor: 0 0 15px 0 rgba(0,0,0,0.7);
@@ -19,7 +19,7 @@
     /*Theme Change color*/
 
 
-    --primaryColor: #fff8f8;
+    --primaryColor: #ffffff;
     --secondaryColor:#212121;
 
 }

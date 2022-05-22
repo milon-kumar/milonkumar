@@ -38,8 +38,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Basic Datatable</h5>
-                            <div class="table-responsive">
+                            <div>
+                                <h5 class="card-title d-inline">Gallery Item</h5>
+                                <a class="btn btn-success btn-sm float-end" href="{{route('backend.gallery.create')}}"><i class="fa fa-plus">&nbsp;&nbsp;&nbsp;</i>Add new</a>
+
+                            </div>
+                            <div class="table">
                                 <table
                                     id="zero_config"
                                     class="table table-striped table-bordered"
@@ -51,47 +55,48 @@
                                         <th>Image</th>
                                         <th>Category</th>
                                         <th>Status</th>
+                                        <th>Created At</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+
+
+
                                     @foreach($galleries as $key => $photo)
                                         <tr>
                                             <td>{{$key +1 }}</td>
                                             <td>{{$photo->title}}</td>
                                             <td>
                                                 @if($photo->image)
-                                                    <img style="width: 80px;height: 50px;" src="{{$photo->image}}" alt="{{$photo->slug}}">
+                                                    <img style="width: 80px;height: 50px;" src="{{asset('uploads/gallery/'.$photo->image)}}" alt="{{$photo->slug}}">
                                                 @else
-                                                    <img src="{{asset('assets/backend/loader.gif')}}" alt="{{$photo->slug}}">
+                                                    <img style="width: 80px;height: 50px;" src="{{asset('assets/backend/loader.gif')}}" alt="{{$photo->slug}}">
                                                 @endif
                                             </td>
                                             <td>
                                                 @if($photo->cat_status == "out")
-                                                    <span class="badge badge-success">Outdor</span>
+                                                    <span class="badge rounded-pill bg-secondary">Outdor</span>
                                                 @elseif($photo->cat_status === 'fam')
-                                                    <span class="badge badge-primary">Family</span>
+                                                    <span class="badge rounded-pill bg-success">Family</span>
                                                 @elseif($photo->cat_status === 'col')
-                                                    <span class="badge badge-info">Collage</span>
+                                                    <span class="badge rounded-pill bg-danger">Collage</span>
                                                 @else
-                                                    <span class="badge badge-warning">Others</span>
+                                                    <span class="badge rounded-pill bg-warning">Others</span>
                                                 @endif
                                             </td>
                                             <td>
-                                                @if($photo->status === 1)
-                                                    <a href="">
-                                                        <span class="badge badge-cyan">Published</span>
-                                                    </a>
+                                                @if($photo->status == 1)
+                                                    <a class="badge rounded-pill bg-success" href="">Published</a>
                                                 @else
-                                                    <a href="">
-                                                        <span class="badge badge-cyan">Unpublished</span>
-                                                    </a>
+                                                    <a class="badge rounded-pill bg-danger" href="">Unpublished</a>
                                                 @endif
                                             </td>
+                                            <td>{{$photo->created_at->diffForHumans()}}</td>
                                             <td>
-                                                <a class="btn btn-success" href=""><i class="fa fa-eye"></i></a>
+                                                <a class="btn btn-success" href="{{route('backend.gallery.show',$photo->id)}}"><i class="fa fa-eye"></i></a>
                                                 <a class="btn btn-warning" href=""><i class="fa fa-edit"></i></a>
-                                                <a class="btn btn-danger" href=""><i class="fa fa-trash"></i></a>
+                                                <a id="deletePhoto" data-id = "{{$photo->id}}" class="btn btn-danger" href=""><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -112,6 +117,31 @@
     <script src="{{asset('/')}}assets/backend/extra-libs/multicheck/jquery.multicheck.js"></script>
     <script src="{{asset('/')}}assets/backend/extra-libs/DataTables/datatables.min.js"></script>
     <script type="text/javascript">
-        $("#zero_config").DataTable();
+
+        $(document).ready(function (){
+            $("#zero_config").DataTable();
+
+            $('#deletePhoto').on('click',function (e){
+               e.preventDefault();
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+            });
+        });
     </script>
 @endpush
