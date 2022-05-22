@@ -14,8 +14,13 @@ class GalleryController extends Controller
         $fam = Gallery::where('cat_status','fam')->get();
         $tra = Gallery::where('cat_status','tra')->get();
         $col = Gallery::where('cat_status','col')->get();
-        $data = array($out, $col, $fam, $tra);
+//        $data = array($out, $col, $fam, $tra);
 
-        return view('frontend.gallery.gallery', compact('data'));
+        return view('frontend.gallery.gallery',[
+            'out'=>$out,
+            'fam'=>$fam,
+            'tra'=>$tra,
+            'col'=>$col,
+        ]);
     }
 }

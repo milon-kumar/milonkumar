@@ -52,8 +52,8 @@ class GalleryController extends Controller
         ]);
 
         if ($validate->fails()){
-            toast('Validation Falils...!','error');
-            return redirect()->back()->withErrors($validate);
+
+            return redirect()->back()->withErrors($validate)->with('error','Your Validation Faild');
         }
 
         if ($request->hasFile('image')){
@@ -73,11 +73,11 @@ class GalleryController extends Controller
                 'status'=>$request->input('status'),
             ]);
 
-            toast('Your Data Save Successfully','success');
-            return back();
+//            toast('Your Data Save Successfully','success');
+            return redirect()->back()->with('success','Our Data Save Successfully');
 
         }catch (\Exception $exception){
-            toast('Data Saved Falis...!!!');
+//            toast('Data Saved Falis...!!!');
             info($exception);
             return back();
         }

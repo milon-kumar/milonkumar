@@ -33,6 +33,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+
 
     @stack('css')
 
@@ -44,7 +46,7 @@
 </head>
 
 <body>
-@include('sweetalert::alert')
+{{--@include('sweetalert::alert')--}}
 <!-- ============================================================== -->
 <!-- Preloader - style you can find in spinners.css -->
 <!-- ============================================================== -->
@@ -121,8 +123,26 @@
 <script src="{{asset('/')}}assets/backend/libs/flot/jquery.flot.crosshair.js"></script>
 <script src="{{asset('/')}}assets/backend/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
 <script src="{{asset('/')}}assets/backend/dist/js/pages/chart/chart-page-init.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
 
 @stack('js')
+<script>
+    $(function(){
 
+        @if(Session::has('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Great!',
+            text: '{{ Session::get("success") }}'
+        });
+        @elseif(Session::has('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ Session::get("success") }}'
+            });
+        @endif
+    });
+</script>
 </body>
 </html>
