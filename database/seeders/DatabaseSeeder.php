@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Gallery;
+use App\Models\Services;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -26,5 +27,6 @@ class DatabaseSeeder extends Seeder
          ]);
 
         Gallery::factory(30)->create();
+        Services::factory(10)->create();
     }
 }
