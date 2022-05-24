@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Gallery;
 use App\Models\Services;
 use App\Models\User;
+use App\Models\Work;
+use App\Models\WorkCategory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -28,5 +30,7 @@ class DatabaseSeeder extends Seeder
 
         Gallery::factory(30)->create();
         Services::factory(10)->create();
+        WorkCategory::factory(10)->create();
+        Work::factory(10)->create();
     }
 }
