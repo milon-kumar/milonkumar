@@ -56,7 +56,7 @@ class ServeicesController extends Controller
             if ($request->hasFile('image')){
                 $image = $request->file('image');
                 $name = Str::random(10).'.'.$image->getClientOriginalExtension();
-                $image->storeAs('services',$name);
+                $image->storeAs('public/uploads/services',$name);
             }
 
             Services::create([
@@ -142,10 +142,10 @@ class ServeicesController extends Controller
         }
 
         if ($request->hasFile('image')){
-            @unlink('uploads/services/'.$service->image);
-            $image = $request->file('image');
-            $name = Str::random(10).'.'.$image->getClientOriginalExtension();
-            $image->storeAs('services',$name);
+            @unlink('storage/uploads/services/'.$service->image);
+                $image = $request->file('image');
+                $name = Str::random(10).'.'.$image->getClientOriginalExtension();
+                $image->storeAs('public/uploads/services',$name);
 
             $service->update([
                 'user_id'=>auth()->id(),
@@ -182,6 +182,7 @@ class ServeicesController extends Controller
     public function destroy($id)
     {
         $services = Services::findOrFail($id);
+        @unlink('storage/uploads/services/'.$services->image);
         $services->delete();
         return redirect()->back()->with('success','Your Data Deleted Successfully');
     }

@@ -66,7 +66,7 @@
                                             <td>{{$service->user->name}}</td>
                                             <td>
                                                 @if($service->image)
-                                                    <img style="width: 80px;height: 50px;" src="{{asset('uploads/services/'.$service->image)}}" alt="{{Str::limit($service->slug,4)}}">
+                                                    <img style="width: 80px;height: 50px;" src="{{asset('storage/uploads/services/'.$service->image)}}" alt="{{Str::limit($service->slug,4)}}">
                                                 @else
                                                     <img style="width: 80px;height: 50px;" src="{{asset('assets/backend/loader.gif')}}" alt="{{Str::limit($service->slug,4)}}">
                                                 @endif

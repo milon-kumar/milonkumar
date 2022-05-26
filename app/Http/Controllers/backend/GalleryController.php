@@ -58,9 +58,13 @@ class GalleryController extends Controller
 
         if ($request->hasFile('image')){
             $image = $request->file('image');
-            $name =Str::random(15).'.'.$image->getClientOriginalExtension();
-            $image->storeAs('gallery',$name);
+            $name =rand(1,9).Str::random(2).'.'.$image->getClientOriginalExtension();
+            $image->storeAs('/public/uploads/gallery',$name);
+
+//            return redirect()->back()->with('error','image uploadet success');
         }
+
+
         try {
 
             Gallery::create([
@@ -101,11 +105,16 @@ class GalleryController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit($id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+//        return$gallery;
+//        exit();
+        return view('backend.gallery.edit',[
+            'gallery'=>$gallery,
+        ]);
     }
 
     /**
@@ -113,11 +122,65 @@ class GalleryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+
+        $validate = Validator::make($request->all(),[
+            'title' =>'required|min:3|max:500',
+            'cat_status'=>'required|in:out,col,fam,tra,oth',
+            'status'=>'required|in:0,1',
+            'body'=>'required|min:5|max:1000',
+        ]);
+
+        if ($validate->fails()){
+            return redirect()->back()->withErrors($validate)->with('error','Your Validation Faild');
+        }
+
+
+
+        if ($request->hasFile('image')){
+            @unlink('storage/uploads/gallery/'.$gallery->image);
+            $image = $request->file('image');
+            $name =rand(1,9).Str::random(2).'.'.$image->getClientOriginalExtension();
+            $image->storeAs('/public/uploads/gallery',$name);
+            try {
+
+                $gallery->update([
+                    'user_id'=>auth()->id(),
+                    'title'=>$request->input('title'),
+                    'slug'=>Str::slug($request->title),
+                    'image'=>$name ?? 'default.png',
+                    'cat_status'=>$request->input('cat_status'),
+                    'text'=>$request->input('body'),
+                    'status'=>$request->input('status'),
+                ]);
+            }catch (\Exception $exception){
+//            toast('Data Saved Falis...!!!');
+                info($exception);
+                return back();
+            }
+        }else{
+            try {
+                $gallery->update([
+                    'user_id'=>auth()->id(),
+                    'title'=>$request->input('title'),
+                    'slug'=>Str::slug($request->title),
+                    'image'=>$gallery->image ?? 'default.png',
+                    'cat_status'=>$request->input('cat_status'),
+                    'text'=>$request->input('body'),
+                    'status'=>$request->input('status'),
+                ]);
+            }catch (\Exception $exception){
+//            toast('Data Saved Falis...!!!');
+                info($exception);
+                return back();
+            }
+        }
+        return redirect()->route('backend.gallery.index')->with('success','Your gallery data update successfully');
+
     }
 
     public function unpublished($id)

@@ -31,8 +31,8 @@
                         @foreach($out as $key => $val)
                             <div class="col-md-3">
                                 <div class="card">
-                                    <a class="yBox" data-ybox-group="group1" href="{{asset('/uploads/gallery/'. $val->image)}}">
-                                        <img style="width: 100%;height: 300px;" class="img-fluid" src="{{ asset('/uploads/gallery/'. $val->image) }}" alt="">
+                                    <a class="yBox" data-ybox-group="group1" href="{{asset('storage/uploads/gallery/'. $val->image)}}">
+                                        <img style="width: 100%;height: 300px;" class="img-fluid" src="{{ asset('storage/uploads/gallery/'. $val->image) }}" alt="">
                                         <div class="card-boyd card-img-overlay ">
                                             <div class="gallery-con-overlay">
                                                 <h6>Image title</h6>
@@ -73,8 +73,8 @@
                         @foreach($col as $key => $val)
                         <div class="col-md-3">
                             <div class="card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/uploads/gallery/'. $val->image)}}">
-                                    <img style="width: 100%;height: 300px;" class="img-fluid" src="{{ asset('/uploads/gallery/'. $val->image) }}" alt="">
+                                <a class="yBox" data-ybox-group="group1" href="{{asset('storage/uploads/gallery/'. $val->image)}}">
+                                    <img style="width: 100%;height: 300px;" class="img-fluid" src="{{ asset('storage/uploads/gallery/'. $val->image) }}" alt="">
                                     <div class="card-boyd card-img-overlay ">
                                         <div class="gallery-con-overlay">
                                             <h6>Image title</h6>
@@ -114,8 +114,8 @@
                         @foreach($fam as $key => $val)
                             <div class="col-md-3">
                                 <div class="card">
-                                    <a class="yBox" data-ybox-group="group1" href="{{asset('/uploads/gallery/'. $val->image)}}">
-                                        <img style="width: 100%;height: 300px;" class="img-fluid" src="{{ asset('/uploads/gallery/'. $val->image) }}" alt="">
+                                    <a class="yBox" data-ybox-group="group1" href="{{asset('storage/uploads/gallery/'. $val->image)}}">
+                                        <img style="width: 100%;height: 300px;" class="img-fluid" src="{{ asset('storage/uploads/gallery/'. $val->image) }}" alt="">
                                         <div class="card-boyd card-img-overlay ">
                                             <div class="gallery-con-overlay">
                                                 <h6>Image title</h6>

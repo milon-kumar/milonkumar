@@ -69,7 +69,7 @@
                                             <td>{{$photo->title}}</td>
                                             <td>
                                                 @if($photo->image)
-                                                    <img style="width: 80px;height: 50px;" src="{{asset('uploads/gallery/'.$photo->image)}}" alt="{{$photo->slug}}">
+                                                    <img style="width: 80px;height: 50px;" src="{{asset('storage/uploads/gallery/'.$photo->image)}}" alt="{{$photo->slug}}">
                                                 @else
                                                     <img style="width: 80px;height: 50px;" src="{{asset('assets/backend/loader.gif')}}" alt="{{$photo->slug}}">
                                                 @endif
@@ -95,7 +95,7 @@
                                             <td>{{$photo->created_at->diffForHumans()}}</td>
                                             <td>
                                                 <a class="btn btn-success" href="{{route('backend.gallery.show',$photo->id)}}"><i class="fa fa-eye"></i></a>
-                                                <a class="btn btn-warning" href=""><i class="fa fa-edit"></i></a>
+                                                <a class="btn btn-warning" href="{{route('backend.gallery.edit',$photo->id)}}"><i class="fa fa-edit"></i></a>
                                                 <a id="deletePhoto" data-id = "{{$photo->id}}" class="btn btn-danger" href=""><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>

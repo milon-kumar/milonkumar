@@ -14,7 +14,7 @@
                     <div class="col-md-4">
                         <div class="card" style="margin-bottom: 15px;">
                             <div class="servicesImgbox">
-                                <img class="card-img" src="{{asset('/uploads/services')."/".$service->image}}"
+                                <img class="card-img" src="{{asset('storage/uploads/services/'.$service->image)}}"
                                      alt="{{$service->slug}}"
                                 >
                             </div>
