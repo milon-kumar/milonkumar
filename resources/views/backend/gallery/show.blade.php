@@ -71,6 +71,10 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th>Body Text</th>
+                                    <td>{{$photo->text}}</td>
+                                </tr>
+                                <tr>
                                     <th>Created At</th>
                                     <td>{{$photo->created_at->diffForHumans()}}</td>
                                 </tr>
