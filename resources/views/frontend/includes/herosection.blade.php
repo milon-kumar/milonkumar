@@ -9,6 +9,6 @@
     </div>
 </div>
 <div class="hero-button">
-    <a href=""><i class="fa fa-download"></i> Download CV</a>
-    <a href=""><i class="fa fa-youtube-play"></i> My Tutorials</a>
+    <a target="_blank" href="https://drive.google.com/file/d/1hRwaDKwAxK0tp8Z3IYpq9Hq5Y8tZG5xt/view"><i class="fa fa-download"></i> Download CV</a>
+    <a target="_blank" href="https://www.youtube.com/channel/UC1Qe3_CYqCKGiTgqGS2GSdw"><i class="fa fa-youtube-play"></i> My Tutorials</a>
 </div>

@@ -3,3 +3,8 @@
 @section('title', __('Not Found'))
 @section('code', '404')
 @section('message', __('Not Found'))
+
+
+<h1>
+    This page is not found
+</h1>

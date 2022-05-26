@@ -87,9 +87,9 @@
                                             </td>
                                             <td>
                                                 @if($photo->status == 1)
-                                                    <a class="badge rounded-pill bg-success" href="">Published</a>
+                                                    <a  class="badge rounded-pill bg-success" href="{{route('backend.gallery.unpublished',$photo->id)}}">Published</a>
                                                 @else
-                                                    <a class="badge rounded-pill bg-danger" href="">Unpublished</a>
+                                                    <a  class="badge rounded-pill bg-danger" href="{{route('backend.gallery.published',$photo->id)}}">Unpublished</a>
                                                 @endif
                                             </td>
                                             <td>{{$photo->created_at->diffForHumans()}}</td>

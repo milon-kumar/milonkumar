@@ -20,7 +20,7 @@ class ServicesFactory extends Factory
         $title = $this->faker->name(20);
         return [
             'user_id'=>1,
-            'image'=>Str::random(15).'png',
+            'image'=>Str::random(15).".".'png',
             'title'=>$title,
             'slug'=>Str::slug($title),
             'body'=>$this->faker->text(100),

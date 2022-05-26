@@ -18,6 +18,11 @@ Route::group(['middleware'=>'auth' ,'as'=>'backend.','prefix'=>'backend'],functi
 
 //      This is Gallery Section Controller
     Route::resource('/gallery',GalleryController::class);
+    Route::get('/gallery/unpublished/{id}',[GalleryController::class,'unpublished'])
+        ->name('gallery.unpublished');
+    Route::get('/gallery/published/{id}',[GalleryController::class,'published'])
+        ->name('gallery.published');
+
 
 //      This is Services Controller
     Route::resource('/services',ServeicesController::class);

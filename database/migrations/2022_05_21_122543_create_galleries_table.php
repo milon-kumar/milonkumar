@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('others_two')->nullable();
             $table->string('others_three')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

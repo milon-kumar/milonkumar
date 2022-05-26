@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
              'password'=>Hash::make('12345678'),
          ]);
 
-        Gallery::factory(30)->create();
+        Gallery::factory(3)->create();
         Services::factory(10)->create();
         WorkCategory::factory(10)->create();
         Work::factory(10)->create();

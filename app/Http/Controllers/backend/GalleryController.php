@@ -120,6 +120,23 @@ class GalleryController extends Controller
         //
     }
 
+    public function unpublished($id)
+    {
+        $gallery = Gallery::findOrFail($id);
+        $gallery->update([
+            'status'=>0,
+        ]);
+        return redirect()->back()->with('success','Your Data Unpublished Successfully');
+    }
+    public function published($id)
+    {
+        $gallery = Gallery::findOrFail($id);
+        $gallery->update([
+            'status'=>1,
+        ]);
+        return redirect()->back()->with('success','Your Data Published Successfully');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

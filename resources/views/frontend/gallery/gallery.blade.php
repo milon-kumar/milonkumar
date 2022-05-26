@@ -26,10 +26,26 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="row mx-auto outdorBG" >
-                        @foreach($out as $item)
+
+                    <div class="row mx-auto">
+                        @foreach($out as $key => $val)
                             <div class="col-md-3">
-                                <img src="{{asset('/uploads/gallery/').$item->photo}}" alt="">
+                                <div class="card">
+                                    <a class="yBox" data-ybox-group="group1" href="{{asset('/uploads/gallery/'. $val->image)}}">
+                                        <img style="width: 100%;height: 300px;" class="img-fluid" src="{{ asset('/uploads/gallery/'. $val->image) }}" alt="">
+                                        <div class="card-boyd card-img-overlay ">
+                                            <div class="gallery-con-overlay">
+                                                <h6>Image title</h6>
+                                                <small><i class="fa fa-camera"></i> click by jugol kumar in 5 jun 2022</small>
+                                            </div>
+
+                                            <div class="sosalite">
+                                                <a class="btn btn-light" href=""><i class="fa fa-eye"></i>2100</a>
+                                                <a class="btn btn-light" href=""><i class="fa fa-heart-o"></i>100</a>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -37,25 +53,7 @@
                 <div class="card-footer">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-circle pg-blue">
-                            <li class="page-item disabled"><a class="page-link">First</a></li>
-                            <li class="page-item disabled">
-                                <a class="page-link" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link">1</a></li>
-                            <li class="page-item"><a class="page-link">2</a></li>
-                            <li class="page-item"><a class="page-link">3</a></li>
-                            <li class="page-item"><a class="page-link">4</a></li>
-                            <li class="page-item"><a class="page-link">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link">Last</a></li>
+                            {{$out->links()}}
                         </ul>
                     </nav>
                 </div>
@@ -72,12 +70,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
-                        @foreach($fam as $key => $val)
-                        <div class="col-md-4">
+                        @foreach($col as $key => $val)
+                        <div class="col-md-3">
                             <div class="card">
                                 <a class="yBox" data-ybox-group="group1" href="{{asset('/uploads/gallery/'. $val->image)}}">
-                                    <img class="img-fluid" src="{{ asset('/uploads/gallery/'. $val->image) }}" alt="">
-
+                                    <img style="width: 100%;height: 300px;" class="img-fluid" src="{{ asset('/uploads/gallery/'. $val->image) }}" alt="">
                                     <div class="card-boyd card-img-overlay ">
                                         <div class="gallery-con-overlay">
                                             <h6>Image title</h6>
@@ -98,25 +95,7 @@
                 <div class="card-footer">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-circle pg-blue">
-                            <li class="page-item disabled"><a class="page-link">First</a></li>
-                            <li class="page-item disabled">
-                                <a class="page-link" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link">1</a></li>
-                            <li class="page-item"><a class="page-link">2</a></li>
-                            <li class="page-item"><a class="page-link">3</a></li>
-                            <li class="page-item"><a class="page-link">4</a></li>
-                            <li class="page-item"><a class="page-link">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link">Last</a></li>
+                            {{$col->links()}}
                         </ul>
                     </nav>
                 </div>
@@ -132,86 +111,32 @@
                 </div>
                 <div class="card-body">
                     <div class="row mx-auto">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/')}}assets/frontend/image/ux2.jpg">
-                                    <img class="img-fluid" src="{{asset('/')}}assets/frontend/image/ux2.jpg" alt="">
+                        @foreach($fam as $key => $val)
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <a class="yBox" data-ybox-group="group1" href="{{asset('/uploads/gallery/'. $val->image)}}">
+                                        <img style="width: 100%;height: 300px;" class="img-fluid" src="{{ asset('/uploads/gallery/'. $val->image) }}" alt="">
+                                        <div class="card-boyd card-img-overlay ">
+                                            <div class="gallery-con-overlay">
+                                                <h6>Image title</h6>
+                                                <small><i class="fa fa-camera"></i> click by jugol kumar in 5 jun 2022</small>
+                                            </div>
 
-                                    <div class="card-boyd card-img-overlay ">
-                                        <div class="gallery-con-overlay">
-                                            <h6>Image title</h6>
-                                            <small><i class="fa fa-camera"></i> click by jugol kumar in 5 jun 2022</small>
+                                            <div class="sosalite">
+                                                <a class="btn btn-light" href=""><i class="fa fa-eye"></i>2100</a>
+                                                <a class="btn btn-light" href=""><i class="fa fa-heart-o"></i>100</a>
+                                            </div>
                                         </div>
-
-                                        <div class="sosalite">
-                                            <a class="btn btn-light" href=""><i class="fa fa-eye"></i>2100</a>
-                                            <a class="btn btn-light" href=""><i class="fa fa-heart-o"></i>100</a>
-                                        </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/')}}assets/frontend/image/ux2.jpg">
-                                    <img class="img-fluid" src="{{asset('/')}}assets/frontend/image/ux2.jpg" alt="">
-
-                                    <div class="card-boyd card-img-overlay ">
-                                        <div class="gallery-con-overlay">
-                                            <h6>Image title</h6>
-                                            <small><i class="fa fa-camera"></i> click by jugol kumar in 5 jun 2022</small>
-                                        </div>
-                                        <div class="sosalite">
-                                            <a class="btn btn-light" href=""><i class="fa fa-eye"></i>2100</a>
-                                            <a class="btn btn-light" href=""><i class="fa fa-heart-o"></i>100</a>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <a class="yBox" data-ybox-group="group1" href="{{asset('/')}}assets/frontend/image/ux2.jpg">
-                                    <img class="img-fluid" src="{{asset('/')}}assets/frontend/image/ux2.jpg" alt="">
-
-                                    <div class="card-boyd card-img-overlay ">
-                                        <div class="gallery-con-overlay">
-                                            <h6>Image title</h6>
-                                            <small><i class="fa fa-camera"></i> click by jugol kumar in 5 jun 2022</small>
-                                        </div>
-
-                                        <div class="sosalite">
-                                            <a class="btn btn-light" href=""><i class="fa fa-eye"></i>2100</a>
-                                            <a class="btn btn-light" href=""><i class="fa fa-heart-o"></i>100</a>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="card-footer">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-circle pg-blue">
-                            <li class="page-item disabled"><a class="page-link">First</a></li>
-                            <li class="page-item disabled">
-                                <a class="page-link" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active"><a class="page-link">1</a></li>
-                            <li class="page-item"><a class="page-link">2</a></li>
-                            <li class="page-item"><a class="page-link">3</a></li>
-                            <li class="page-item"><a class="page-link">4</a></li>
-                            <li class="page-item"><a class="page-link">5</a></li>
-                            <li class="page-item">
-                                <a class="page-link" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link">Last</a></li>
+                            {{$fam->links()}}
                         </ul>
                     </nav>
                 </div>
