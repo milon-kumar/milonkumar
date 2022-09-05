@@ -49,8 +49,13 @@ Route::group(['middleware'=>'auth' ,'as'=>'backend.','prefix'=>'backend'],functi
     Route::get('/work/published/{id}',[WorkController::class,'published'])
         ->name('works.published');
 
-
+//    Check Sms Template
+    Route::get('/sms',[\App\Http\Controllers\backend\SmsController::class,'newSms']);
     Route::get('/profile/setting',function (){
         return "OK";
     })->name('backend.profile.setting');
 });
+
+Route::get('/products',[DashboardController::class,'getProducts'])->name('products');
+Route::post('/add-to-cart',[DashboardController::class,'addToCart'])->name('add-to-cart');
+Route::get('/get-cart-product',[DashboardController::class,'getCartProduct'])->name('get-cart-product');
